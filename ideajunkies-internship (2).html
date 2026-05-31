@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Idea Junkies — Internship Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#0a0a0a;
+  --white:#fafaf7;
+  --orange:#ff4d00;
+  --orange-light:#fff0eb;
+  --yellow:#ffd600;
+  --muted:#7a7570;
+  --border:#e8e2d8;
+  --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:'Epilogue',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--black);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid #1f1f1f}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--white);letter-spacing:-0.5px}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:#888;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--orange);color:var(--white);font-size:12px;font-weight:600;padding:8px 18px;border-radius:100px;text-decoration:none;letter-spacing:0.5px}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--black);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.5;pointer-events:none}
+.hero-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:32px}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.eyebrow-text{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#666}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,5rem);font-weight:900;color:var(--white);line-height:1.0;margin-bottom:28px;letter-spacing:-1px}
+.hero h1 em{color:var(--orange);font-style:normal}
+.hero-sub{color:#666;font-size:1.05rem;font-weight:300;max-width:420px;line-height:1.75;margin-bottom:44px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1f1f1f;border:1px solid #1f1f1f;border-radius:12px;overflow:hidden;max-width:420px}
+.hero-stat{background:var(--black);padding:20px 16px;text-align:center}
+.hero-stat .n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--white)}
+.hero-stat .l{font-size:11px;color:#555;margin-top:2px;letter-spacing:0.5px}
+.hero-right{display:flex;align-items:center;justify-content:center;padding:60px 40px;position:relative;z-index:1}
+.hero-card{background:#111;border:1px solid #222;border-radius:20px;padding:32px;width:100%;max-width:360px}
+.hc-tag{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.hc-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:20px;line-height:1.3}
+.hc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.hc-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#888;line-height:1.5}
+.hc-list li::before{content:'→';color:var(--orange);flex-shrink:0;margin-top:1px}
+.hc-divider{height:1px;background:#1f1f1f;margin:20px 0}
+.hc-bottom{display:flex;align-items:center;justify-content:space-between}
+.hc-label{font-size:11px;color:#444;letter-spacing:1px;text-transform:uppercase}
+.hc-value{font-size:13px;color:var(--white);font-weight:500}
+
+/* SECTIONS */
+section{padding:100px 80px}
+.section-inner{max-width:1140px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.section-tag::before{content:'';width:20px;height:1px;background:var(--orange)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:16px;letter-spacing:-0.5px}
+.section-lead{font-size:1.05rem;color:var(--muted);max-width:540px;margin-bottom:60px;font-weight:300;line-height:1.75}
+
+/* COMPANY */
+.company-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.company-text p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:20px;font-weight:300}
+.company-text p strong{color:var(--black);font-weight:600}
+.pillars{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px}
+.pillar{border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s,transform 0.2s}
+.pillar:hover{border-color:var(--orange);transform:translateX(4px)}
+.pillar-icon{width:40px;height:40px;border-radius:10px;background:var(--orange-light);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pillar-text h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.pillar-text p{font-size:13px;color:var(--muted);line-height:1.5}
+.company-aside{display:flex;flex-direction:column;gap:20px}
+.aside-card{background:var(--black);color:var(--white);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+.aside-card::after{content:'"';font-family:'Playfair Display',serif;font-size:8rem;color:#1a1a1a;position:absolute;bottom:-20px;right:16px;line-height:1}
+.aside-card blockquote{font-family:'Playfair Display',serif;font-size:1.1rem;line-height:1.5;color:var(--white);position:relative;z-index:1;margin-bottom:12px}
+.aside-card cite{font-size:12px;color:#555;font-style:normal;letter-spacing:1px;text-transform:uppercase}
+.aside-tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.atag{background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;border:1px solid #ffd0bb}
+
+/* SOCIAL POSTS */
+.posts-bg{background:#f5f0e8}
+.posts-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s}
+.post-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.08)}
+.post-platform-bar{padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+.pp-avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--white);flex-shrink:0}
+.pp-name{font-size:13px;font-weight:600}
+.pp-time{font-size:11px;color:var(--muted)}
+.pp-badge{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px}
+.li-b{background:#e6f0fb;color:#0c447c}
+.ig-b{background:#fbeaf0;color:#72243e}
+.post-visual{width:100%;background:#0d0d0d;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:32px 24px}
+.post-visual.ig-v{background:#1a1a2e;aspect-ratio:9/14;position:relative;justify-content:flex-end;padding:20px}
+.quote-card{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);text-align:center;line-height:1.5;max-width:240px}
+.quote-line{width:30px;height:2px;background:var(--orange);border-radius:1px}
+.quote-source{font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase}
+.reel-face{width:52px;height:52px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--white);position:absolute;top:20px;left:50%;transform:translateX(-50%)}
+.reel-sidebar{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;align-items:center}
+.reel-action{display:flex;flex-direction:column;align-items:center;gap:2px;color:rgba(255,255,255,0.7);font-size:10px}
+.reel-action svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5}
+.reel-caption-box{background:rgba(0,0,0,0.7);border-radius:8px;padding:10px 12px;text-align:center;font-size:11px;color:var(--white);line-height:1.5}
+.post-body{padding:16px 18px 18px}
+.post-hook{font-size:13px;font-weight:600;color:var(--black);margin-bottom:6px}
+.post-excerpt{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.post-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pt{font-size:11px;color:#0077b5;font-weight:500}
+.pt.ig{color:#833ab4}
+.post-actions-bar{display:flex;gap:14px;align-items:center;padding:10px 18px;border-top:1px solid var(--border)}
+.pa-btn{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;padding:0}
+.pa-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
+.pa-count{font-size:12px;color:var(--muted);margin-left:auto}
+
+/* ROADMAP */
+.roadmap-bg{background:var(--black)}
+.roadmap-bg h2{color:var(--white)}
+.roadmap-bg .section-lead{color:#555}
+.weeks-timeline{display:flex;flex-direction:column;gap:0}
+.week-row{display:grid;grid-template-columns:140px 1fr;gap:0;position:relative}
+.week-row:not(:last-child)::after{content:'';position:absolute;left:139px;top:36px;bottom:0;width:1px;background:#1f1f1f}
+.week-label{padding:24px 24px 24px 0;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.wl-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#222;line-height:1}
+.wl-tag{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange)}
+.week-content{padding:24px 0 24px 40px;border-left:1px solid #1f1f1f;position:relative}
+.week-dot{position:absolute;left:-6px;top:32px;width:11px;height:11px;border-radius:50%;background:var(--orange);border:2px solid var(--black)}
+.wc-title{font-size:15px;font-weight:600;color:var(--white);margin-bottom:12px}
+.wc-tasks{display:flex;flex-direction:column;gap:8px}
+.wc-task{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#666;line-height:1.5}
+.wc-task .tk{flex-shrink:0;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-top:1px}
+.tk.li{background:#0c447c;color:#b5d4f4}
+.tk.ig{background:#72243e;color:#f4c0d1}
+.tk.tt{background:#111;color:#888;border:1px solid #222}
+.tk.br{background:#633806;color:#fac775}
+.tk.cm{background:#27500a;color:#c0dd97}
+.week-deliverable{margin-top:16px;background:#111;border:1px solid #1f1f1f;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.wd-icon{font-size:18px}
+.wd-text{font-size:12px;color:#555}
+.wd-text strong{color:#888;display:block;margin-bottom:2px}
+
+/* LEARNING OBJECTIVES */
+.objectives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.obj-card{border:1px solid var(--border);border-radius:18px;padding:28px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s}
+.obj-card:hover{border-color:var(--orange);transform:translateY(-4px)}
+.obj-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:#f0ebe4;position:absolute;top:-8px;right:16px;line-height:1}
+.obj-icon{font-size:28px;margin-bottom:16px}
+.obj-title{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--black)}
+.obj-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.obj-tag{display:inline-block;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border:1px solid #ffd0bb;border-radius:100px;padding:4px 12px;background:var(--orange-light)}
+
+/* SKILLS */
+.skills-bg{background:#f5f0e8}
+.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.skill-group h3{font-size:15px;font-weight:600;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.skill-items{display:flex;flex-direction:column;gap:12px}
+.skill-item{display:flex;align-items:center;gap:14px}
+.skill-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.skill-name{font-size:14px;color:var(--black);font-weight:500;width:160px;flex-shrink:0}
+.skill-bar-bg{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.skill-bar{height:100%;background:var(--orange);border-radius:2px}
+.skill-label{font-size:11px;color:var(--muted);width:60px;text-align:right;flex-shrink:0}
+
+/* GROWTH IDEA */
+.growth-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.series-box{background:var(--black);border-radius:20px;padding:36px;color:var(--white)}
+.series-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--white);margin-bottom:8px;line-height:1.2}
+.series-box h3 em{color:var(--orange);font-style:normal}
+.series-box p{font-size:14px;color:#666;line-height:1.7;margin-bottom:24px}
+.verdict-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.vc{font-size:12px;font-weight:600;padding:7px 16px;border-radius:100px;border:1px solid}
+.vc-red{background:#300;color:#f09595;border-color:#500}
+.vc-green{background:#0a1a06;color:#c0dd97;border-color:#1a3a0f}
+.vc-gray{background:#111;color:#666;border-color:#222}
+.series-steps{display:flex;flex-direction:column;gap:12px}
+.ss{display:flex;gap:14px;align-items:flex-start}
+.ss-num{width:28px;height:28px;border-radius:50%;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ss-text{font-size:13px;color:#888;line-height:1.5;padding-top:5px}
+.ss-text strong{color:var(--white);display:block}
+.why-cards{display:flex;flex-direction:column;gap:16px}
+.why-card{border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:border-color 0.2s}
+.why-card:hover{border-color:var(--orange)}
+.why-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.why-card h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* FOOTER */
+footer{background:var(--black);padding:60px 80px;border-top:1px solid #111}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:start}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--white);margin-bottom:10px}
+.footer-brand span{color:var(--orange)}
+.footer-desc{font-size:13px;color:#444;line-height:1.65;margin-bottom:20px}
+.footer-link{color:#555;font-size:13px;text-decoration:none}
+.footer-col h5{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333;margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col ul li a{color:#444;font-size:13px;text-decoration:none;transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--white)}
+.footer-bottom{max-width:1140px;margin:40px auto 0;padding-top:24px;border-top:1px solid #111;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:12px;color:#333}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);animation:fadeUp 0.7s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.fade-up:nth-child(1){animation-delay:0.1s}
+.fade-up:nth-child(2){animation-delay:0.2s}
+.fade-up:nth-child(3){animation-delay:0.3s}
+.fade-up:nth-child(4){animation-delay:0.4s}
+
+/* TICKER */
+.ticker-wrap{background:var(--yellow);overflow:hidden;padding:14px 0;border-top:1px solid #0d0d0d;border-bottom:1px solid #0d0d0d}
+.ticker-track{display:flex;gap:0;animation:ticker 25s linear infinite;width:max-content}
+.ticker-item{display:flex;align-items:center;gap:20px;padding:0 24px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--black);white-space:nowrap}
+.ticker-item::after{content:'✦';color:var(--orange)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .company-grid,.posts-grid,.objectives-grid,.skills-cols,.growth-grid,.footer-inner{grid-template-columns:1fr}
+  section{padding:70px 28px}
+  footer{padding:50px 28px}
+  nav{padding:0 20px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Idea <span>Junkies</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#posts">Content</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#growth">Growth Idea</a>
+    <a href="#everyday">Everyday AI</a>
+    <a href="#objectives">Objectives</a>
+  </div>
+  <a class="nav-cta" href="#roadmap">View Internship Plan →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-noise"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      <span class="eyebrow-text">Internship Strategy · Summer 2025</span>
+    </div>
+    <h1 class="fade-up">People First.<br/><em>AI</em> Second.<br/>Always.</h1>
+    <p class="hero-sub fade-up">A full internship strategy for Idea Junkies — covering company background, social content, 5-week roadmap, growth campaigns, and learning objectives. Built to grow an audience, build a brand, and make AI human.</p>
+    <div class="hero-stats fade-up">
+      <div class="hero-stat"><div class="n">50</div><div class="l">Hours total</div></div>
+      <div class="hero-stat"><div class="n">5</div><div class="l">Weeks</div></div>
+      <div class="hero-stat"><div class="n">3</div><div class="l">Platforms</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card fade-up">
+      <div class="hc-tag">Internship Overview</div>
+      <div class="hc-title">NCL Internship · Idea Junkies Ltd</div>
+      <ul class="hc-list">
+        <li>50 hours over summer — 10hrs/week</li>
+        <li>Based in Newcastle + remote flexibility</li>
+        <li>Support from Director & Operations Manager</li>
+        <li>Real ownership of a live growth project</li>
+        <li>Portfolio-ready measurable results</li>
+      </ul>
+      <div class="hc-divider"></div>
+      <div class="hc-bottom">
+        <div><div class="hc-label">Platforms</div><div class="hc-value">LinkedIn · Instagram · TikTok</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">People First AI</span>
+    <span class="ticker-item">LinkedIn Growth</span>
+    <span class="ticker-item">Instagram Reels</span>
+    <span class="ticker-item">TikTok Launch</span>
+    <span class="ticker-item">Community Building</span>
+    <span class="ticker-item">Content Strategy</span>
+    <span class="ticker-item">Ethical AI</span>
+    <span class="ticker-item">Audience Growth</span>
+    <span class="ticker-item">Newcastle University</span>
+    <span class="ticker-item">People First AI</span>
+    <span class="ticker-item">LinkedIn Growth</span>
+    <span class="ticker-item">Instagram Reels</span>
+    <span class="ticker-item">TikTok Launch</span>
+    <span class="ticker-item">Community Building</span>
+    <span class="ticker-item">Content Strategy</span>
+    <span class="ticker-item">Ethical AI</span>
+    <span class="ticker-item">Audience Growth</span>
+    <span class="ticker-item">Newcastle University</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-tag">About the Company</div>
+    <h2>Who is Idea Junkies?</h2>
+    <p class="section-lead">A fast-growing AI consultancy based in the UK, helping businesses adopt AI safely, ethically, and practically — with people always at the centre.</p>
+    <div class="company-grid">
+      <div class="company-text">
+        <p>Idea Junkies is a <strong>strategic AI consultancy</strong> founded by Laura Richards, a qualified AI & ML developer, Associate Lecturer at Newcastle University, and Fellow of the Chartered Institute of Public Relations. Their philosophy is simple: <strong>People First. AI Second. Always.</strong></p>
+        <p>They are currently in a <strong>key growth phase</strong>, rapidly expanding their audience and building an engaged community around AI insights, tools, and trends. Their clients include Newcastle Building Society, Northumbrian Water, eToro, HiBob, and Clarion Housing.</p>
+        <p>The company holds a strong LinkedIn presence, an underused Instagram account, and <strong>no TikTok presence yet</strong> — which is exactly where this internship comes in.</p>
+        <div class="aside-tag-cloud" style="margin-top:24px">
+          <span class="atag">Ethical AI</span>
+          <span class="atag">People-First</span>
+          <span class="atag">Newcastle</span>
+          <span class="atag">AI Consultancy</span>
+          <span class="atag">Community</span>
+          <span class="atag">Growth Phase</span>
+        </div>
+      </div>
+      <div class="company-aside">
+        <div class="aside-card">
+          <blockquote>"The organisations getting AI right aren't moving fastest — they're putting people first."</blockquote>
+          <cite>Idea Junkies · Core Philosophy</cite>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🧠</div>
+            <div class="pillar-text"><h4>Strategic Consulting</h4><p>People-first AI strategy for leadership teams, built on 20+ years of change management expertise.</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🛠</div>
+            <div class="pillar-text"><h4>Idea Junkies Studio</h4><p>A product studio building voice-first AI tools tested in real operating conditions.</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌐</div>
+            <div class="pillar-text"><h4>The AI Suite</h4><p>A hype-free learning community for professionals navigating AI at their own pace.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL POSTS -->
+<section id="posts" class="posts-bg">
+  <div class="section-inner">
+    <div class="section-tag">Task 1 — Social Content</div>
+    <h2>Two posts. Real AI news.</h2>
+    <p class="section-lead">Both grounded in May 2026 AI trends, both written for the person who's curious about AI but doesn't speak tech.</p>
+    <div class="posts-grid">
+
+      <!-- LinkedIn -->
+      <div class="post-card">
+        <div class="post-platform-bar">
+          <div class="pp-avatar" style="background:#0077b5">IJ</div>
+          <div><div class="pp-name">Idea Junkies</div><div class="pp-time">LinkedIn · 2h ago</div></div>
+          <span class="pp-badge li-b">LinkedIn</span>
+        </div>
+        <div class="post-visual">
+          <div class="quote-card">"AI works best when humans stay meaningfully involved."</div>
+          <div class="quote-line"></div>
+          <div class="quote-source">Idea Junkies</div>
+        </div>
+        <div class="post-body">
+          <div class="post-hook">AI agents handed the wheel before learning the road</div>
+          <div class="post-excerpt">Everyone's talking about AI agents doing your work. But a major new study found: when AI handles complex multi-step tasks — it starts dropping things. Not because AI is bad. Because we handed it the wheel too soon.<br/><br/>👇 What's one task you'd never fully hand to AI?</div>
+          <div class="post-tags"><span class="pt">#AIStrategy</span><span class="pt">#PeopleFirst</span><span class="pt">#Leadership</span><span class="pt">#AIAdoption</span></div>
+        </div>
+        <div class="post-actions-bar">
+          <button class="pa-btn"><svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>Like</button>
+          <button class="pa-btn"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Comment</button>
+          <span class="pa-count">247 reactions · 38 comments</span>
+        </div>
+      </div>
+
+      <!-- Instagram Reel -->
+      <div class="post-card">
+        <div class="post-platform-bar">
+          <div class="pp-avatar" style="background:linear-gradient(135deg,#833ab4,#c13584,#f77737)">IJ</div>
+          <div><div class="pp-name">@ideajunkies</div><div class="pp-time">Instagram Reel · 5h ago</div></div>
+          <span class="pp-badge ig-b">Reel</span>
+        </div>
+        <div style="position:relative;background:#000;overflow:hidden;aspect-ratio:9/14;min-height:260px;display:flex;align-items:center;justify-content:center">
+          <video src="reel.mp4" style="width:100%;height:100%;object-fit:cover;display:block" autoplay muted loop playsinline></video>
+          <div style="position:absolute;inset:0;pointer-events:none">
+            <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(0,0,0,0.45) 0%,transparent 100%)"></div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(0deg,rgba(0,0,0,0.7) 0%,transparent 100%)"></div>
+            <div style="position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:6px">
+              <span style="font-size:12px;color:#fff;font-weight:600;opacity:0.85;letter-spacing:0.5px">▶ Reels</span>
+            </div>
+            <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;align-items:center;pointer-events:auto">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:18px">♥</div>
+                <span style="font-size:11px;color:#fff;font-weight:500">2.4k</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:18px">💬</div>
+                <span style="font-size:11px;color:#fff;font-weight:500">148</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:18px">↗</div>
+                <span style="font-size:11px;color:#fff;font-weight:500">Share</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer">
+                <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:18px">🔖</div>
+                <span style="font-size:11px;color:#fff;font-weight:500">Save</span>
+              </div>
+            </div>
+            <div style="position:absolute;bottom:14px;left:14px;right:60px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#c13584,#f77737);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">IJ</div>
+                <span style="font-size:12px;color:#fff;font-weight:600">@ideajunkies</span>
+              </div>
+              <div style="font-size:12px;color:#fff;line-height:1.4">Instagram is about to start <b>shopping for you.</b> Here's what nobody's telling you. 👇</div>
+            </div>
+          </div>
+        </div>
+        <div class="post-body">
+          <div class="post-hook">Nobody asked if you wanted AI buying for you</div>
+          <div class="post-excerpt">Meta announced Instagram AI that completes purchases automatically. But did anyone ask the users? This is the pattern: tech gets built, then rolled out, and people find out in a headline. AI should be built with people — not at them.</div>
+          <div class="post-tags"><span class="pt ig">#AINews</span><span class="pt ig">#PeopleFirst</span><span class="pt ig">#Instagram</span><span class="pt ig">#TechExplained</span></div>
+        </div>
+        <div class="post-actions-bar">
+          <button class="pa-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Like</button>
+          <button class="pa-btn"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Comment</button>
+          <span class="pa-count">2,418 likes · 148 comments</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="roadmap-bg">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--orange)">Task 2 — Internship Roadmap</div>
+    <h2>5-Week Plan</h2>
+    <p class="section-lead">A week-by-week roadmap across 50 hours, covering platform setup, content creation, community growth, and performance analysis.</p>
+
+    <div class="weeks-timeline">
+
+      <div class="week-row">
+        <div class="week-label"><div class="wl-num" style="color:#222">01</div><div class="wl-tag">Foundation</div></div>
+        <div class="week-content">
+          <div class="week-dot"></div>
+          <div class="wc-title">Week 1 — Research, Setup & Brand Audit (10hrs)</div>
+          <div class="wc-tasks">
+            <div class="wc-task"><span class="tk li">Li</span>Audit existing LinkedIn — identify top posts, voice, engagement patterns</div>
+            <div class="wc-task"><span class="tk ig">IG</span>Audit Instagram — assess bio, content gaps, follower quality</div>
+            <div class="wc-task"><span class="tk tt">TT</span>Set up TikTok business account — bio, profile picture, link in bio</div>
+            <div class="wc-task"><span class="tk br">BR</span>Build a content brand kit — tone of voice guide, caption templates, hashtag lists</div>
+            <div class="wc-task"><span class="tk cm">CM</span>Research 10 AI trends relevant to non-technical audience for content bank</div>
+          </div>
+          <div class="week-deliverable"><div class="wd-icon">📋</div><div class="wd-text"><strong>Deliverable</strong>Brand audit report + TikTok live + content calendar template for weeks 2–5</div></div>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label"><div class="wl-num" style="color:#222">02</div><div class="wl-tag">Launch</div></div>
+        <div class="week-content">
+          <div class="week-dot"></div>
+          <div class="wc-title">Week 2 — First Content Wave (10hrs)</div>
+          <div class="wc-tasks">
+            <div class="wc-task"><span class="tk li">Li</span>Publish LinkedIn Post 1: "AI Agents — we handed it the wheel" (with quote graphic)</div>
+            <div class="wc-task"><span class="tk ig">IG</span>Publish Instagram Reel 1: "Nobody asked if you wanted AI shopping for you"</div>
+            <div class="wc-task"><span class="tk tt">TT</span>Publish TikTok debut video — Laura intro + "Ask Me If It's Hype" series launch</div>
+            <div class="wc-task"><span class="tk br">BR</span>Design 3 reusable Canva templates (quote card, carousel, reel cover)</div>
+            <div class="wc-task"><span class="tk cm">CM</span>Engage first 60 mins after each post — reply to all comments</div>
+          </div>
+          <div class="week-deliverable"><div class="wd-icon">🚀</div><div class="wd-text"><strong>Deliverable</strong>3 live posts across 3 platforms + Canva template library</div></div>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label"><div class="wl-num" style="color:#222">03</div><div class="wl-tag">Momentum</div></div>
+        <div class="week-content">
+          <div class="week-dot"></div>
+          <div class="wc-title">Week 3 — Series & Community (10hrs)</div>
+          <div class="wc-tasks">
+            <div class="wc-task"><span class="tk tt">TT</span>Launch "Ask Me If It's Hype" weekly series — Monday Story + Thursday Reel</div>
+            <div class="wc-task"><span class="tk ig">IG</span>Post AI tutorial carousel: "3 AI tools that actually save you time"</div>
+            <div class="wc-task"><span class="tk li">Li</span>Publish thought leadership post from Laura — personal story angle</div>
+            <div class="wc-task"><span class="tk cm">CM</span>Drive 20+ sign-ups to The AI Suite via link-in-bio CTA on every post</div>
+            <div class="wc-task"><span class="tk br">BR</span>Identify 5 collaboration accounts in HR, education, or business to engage</div>
+          </div>
+          <div class="week-deliverable"><div class="wd-icon">🎙</div><div class="wd-text"><strong>Deliverable</strong>Series live on TikTok + first community sign-up tracking report</div></div>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label"><div class="wl-num" style="color:#222">04</div><div class="wl-tag">Scale</div></div>
+        <div class="week-content">
+          <div class="week-dot"></div>
+          <div class="wc-title">Week 4 — Optimise & Expand (10hrs)</div>
+          <div class="wc-tasks">
+            <div class="wc-task"><span class="tk li">Li</span>Analyse Week 2–3 LinkedIn performance — double down on highest-reach format</div>
+            <div class="wc-task"><span class="tk tt">TT</span>Post Week 2 of "Ask Me If It's Hype" + test trending audio</div>
+            <div class="wc-task"><span class="tk ig">IG</span>Run first "Most Ridiculous AI Hype of the Month" poll — Story vote</div>
+            <div class="wc-task"><span class="tk cm">CM</span>Guest collaboration: invite a client or professional for a 60-second Reel reaction</div>
+            <div class="wc-task"><span class="tk br">BR</span>A/B test two caption styles on the same content — question vs statement hook</div>
+          </div>
+          <div class="week-deliverable"><div class="wd-icon">📊</div><div class="wd-text"><strong>Deliverable</strong>Mid-point performance dashboard + collaboration content live</div></div>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="week-label"><div class="wl-num" style="color:#222">05</div><div class="wl-tag">Report</div></div>
+        <div class="week-content">
+          <div class="week-dot"></div>
+          <div class="wc-title">Week 5 — Results, Reflection & Handover (10hrs)</div>
+          <div class="wc-tasks">
+            <div class="wc-task"><span class="tk li">Li</span>Publish final LinkedIn post — summary of AI trend of the month</div>
+            <div class="wc-task"><span class="tk tt">TT</span>Record Week 3 of the series — ensure momentum continues post-internship</div>
+            <div class="wc-task"><span class="tk cm">CM</span>Compile full performance report: follower growth, reach, saves, sign-ups</div>
+            <div class="wc-task"><span class="tk br">BR</span>Write content strategy handover doc — templates, scheduling guide, series format</div>
+            <div class="wc-task"><span class="tk ig">IG</span>Create 2 weeks of scheduled content so momentum doesn't drop after handover</div>
+          </div>
+          <div class="week-deliverable"><div class="wd-icon">🏁</div><div class="wd-text"><strong>Deliverable</strong>Full performance report + content handover pack + 2 weeks pre-scheduled posts</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH IDEA -->
+<section id="growth">
+  <div class="section-inner">
+    <div class="section-tag">Task 3 — Growth Idea</div>
+    <h2>Ask Me If It's Hype</h2>
+    <p class="section-lead">A weekly interactive series that turns audience anxiety into loyal, recurring engagement — and positions Idea Junkies as the trusted AI translator.</p>
+    <div class="growth-grid">
+      <div class="series-box">
+        <h3>"Ask Me If It's <em>Hype</em>"</h3>
+        <p>Every week, Laura invites followers to submit an AI tool, headline, or trend they've seen. She gives a straight, no-jargon verdict in 60 seconds. Three verdicts. One minute. Real talk.</p>
+        <div class="verdict-chips">
+          <span class="vc vc-red">🔥 It's Hype</span>
+          <span class="vc vc-green">✅ It's Helpful</span>
+          <span class="vc vc-gray">⏳ Not Yet</span>
+        </div>
+        <div class="series-steps">
+          <div class="ss"><div class="ss-num">1</div><div class="ss-text"><strong>Monday</strong>Story drops: "What AI thing confused you this week? 👇"</div></div>
+          <div class="ss"><div class="ss-num">2</div><div class="ss-text"><strong>Thursday</strong>60-second Reel using real audience submissions — her honest verdict</div></div>
+          <div class="ss"><div class="ss-num">3</div><div class="ss-text"><strong>Monthly</strong>"Most Ridiculous AI Hype" community poll — shareable, fun, human</div></div>
+          <div class="ss"><div class="ss-num">4</div><div class="ss-text"><strong>As it grows</strong>Guest verdicts from HR directors, teachers, business founders</div></div>
+        </div>
+      </div>
+      <div class="why-cards">
+        <div class="why-card"><div class="why-icon">🎯</div><div><h4>Built on engagement</h4><p>The audience creates the content topics — so they're already invested before the Reel even posts.</p></div></div>
+        <div class="why-card"><div class="why-icon">🤝</div><div><h4>People first, literally</h4><p>Laura responds to real human concerns — perfectly on-brand and impossible to fake or replicate.</p></div></div>
+        <div class="why-card"><div class="why-icon">♾️</div><div><h4>Never runs dry</h4><p>Audience submissions = infinite content ideas. The more followers, the better the series gets.</p></div></div>
+        <div class="why-card"><div class="why-icon">🚀</div><div><h4>Collaboration built-in</h4><p>Invite guest verdicts from new professional communities — naturally expands reach without paid ads.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERYDAY AI SECTION -->
+<section id="everyday" style="background:#0a0a0a;padding:100px 80px">
+  <div class="section-inner">
+    <div class="section-tag" style="color:#ffd600">For Non-Technical People</div>
+    <h2 style="color:#fafaf7">AI is already in<br/>your daily life.</h2>
+    <p class="section-lead" style="color:#555;max-width:580px">Most people don't realise they're already using AI every single day — Netflix, Google Maps, Spotify, autocorrect. These two posts speak directly to that person: curious, slightly nervous, but already more AI-savvy than they think.</p>
+
+    <!-- WHO IS THIS PERSON BOX -->
+    <div style="background:#111;border:1px solid #1f1f1f;border-radius:20px;padding:36px;margin-bottom:60px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;margin-bottom:12px">Who they are</div>
+        <p style="font-size:14px;color:#888;line-height:1.7">A professional in their 30s–50s. Uses a smartphone, Netflix, Google Maps every day. Hears "AI" constantly but feels it's not for them — too techy, too complicated, too scary.</p>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;margin-bottom:12px">What they feel</div>
+        <p style="font-size:14px;color:#888;line-height:1.7">Left behind. Like everyone else "gets it" and they don't. Worried their job might be affected. But also curious — if only someone would explain it without making them feel dumb.</p>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;margin-bottom:12px">What they need</div>
+        <p style="font-size:14px;color:#888;line-height:1.7">A friendly, jargon-free voice that says: <em style="color:#fafaf7">"You already use AI. You're not behind. Here's how it fits into your life right now."</em></p>
+      </div>
+    </div>
+
+    <!-- TWO POST CARDS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+
+      <!-- INSTAGRAM POST -->
+      <div style="background:#fafaf7;border-radius:24px;overflow:hidden;border:1px solid #e8e2d8">
+
+        <!-- Instagram top bar -->
+        <div style="padding:14px 16px;display:flex;align-items:center;gap:10px;background:#fff;border-bottom:1px solid #f0ece4">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#c13584,#f77737);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0">IJ</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#0a0a0a">@ideajunkies</div>
+            <div style="font-size:11px;color:#888">Instagram · Reel</div>
+          </div>
+          <div style="margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:#fbeaf0;color:#72243e;padding:4px 10px;border-radius:100px">Instagram</div>
+        </div>
+
+        <!-- Visual: phone mockup with daily life scene -->
+        <div style="background:linear-gradient(160deg,#1a0a2e 0%,#0d1a2e 100%);padding:0;position:relative;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+
+          <!-- floating emoji bubbles -->
+          <div style="position:absolute;top:18px;left:20px;background:rgba(255,255,255,0.08);border-radius:100px;padding:8px 14px;font-size:13px;color:#fff;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px)">📺 <span style="font-size:11px">Netflix suggested it</span></div>
+          <div style="position:absolute;top:60px;right:18px;background:rgba(255,255,255,0.08);border-radius:100px;padding:8px 14px;font-size:13px;color:#fff;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px)">🗺 <span style="font-size:11px">Maps found a shortcut</span></div>
+          <div style="position:absolute;top:110px;left:14px;background:rgba(255,255,255,0.08);border-radius:100px;padding:8px 14px;font-size:13px;color:#fff;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px)">🎵 <span style="font-size:11px">Spotify knew your mood</span></div>
+          <div style="position:absolute;top:160px;right:14px;background:rgba(255,255,255,0.08);border-radius:100px;padding:8px 14px;font-size:13px;color:#fff;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px)">⌨️ <span style="font-size:11px">Autocorrect saved you</span></div>
+
+          <!-- centre text -->
+          <div style="text-align:center;padding:24px;z-index:1">
+            <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1.3;margin-bottom:10px">You've been using AI<br/><span style="color:#ffd600">for years.</span></div>
+            <div style="font-size:12px;color:#888">You just didn't know it had a name.</div>
+          </div>
+
+          <!-- reel sidebar -->
+          <div style="position:absolute;right:12px;bottom:20px;display:flex;flex-direction:column;gap:14px;align-items:center">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:rgba(255,255,255,0.7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span style="font-size:10px;color:#aaa">6.1k</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:rgba(255,255,255,0.7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span style="font-size:10px;color:#aaa">312</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:rgba(255,255,255,0.7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <span style="font-size:10px;color:#aaa">Share</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caption & Script -->
+        <div style="padding:20px">
+          <div style="font-size:13px;font-weight:700;color:#0a0a0a;margin-bottom:6px">🎙 Hook (first 3 seconds):</div>
+          <div style="background:#fff0eb;border-left:3px solid #ff4d00;padding:12px 14px;border-radius:0 8px 8px 0;font-size:13px;color:#0a0a0a;line-height:1.65;margin-bottom:14px;font-style:italic">"You used AI at least 5 times today. Before you even had your morning coffee. Let me show you."</div>
+
+          <div style="font-size:13px;font-weight:700;color:#0a0a0a;margin-bottom:6px">📋 Full Caption:</div>
+          <div style="font-size:13px;color:#555;line-height:1.75;margin-bottom:14px">
+            Netflix suggested what to watch. 📺<br/>
+            Maps found you a faster route. 🗺<br/>
+            Spotify queued up exactly the right song. 🎵<br/>
+            Autocorrect stopped you embarrassing yourself. 😬<br/><br/>
+            <strong style="color:#0a0a0a">That's AI. Already in your life. Already working for you.</strong><br/><br/>
+            You don't need a Computer Science degree to use it.<br/>
+            You just need to know it's already there.<br/><br/>
+            Follow <strong style="color:#833ab4">@ideajunkies</strong> for AI explained like a human talking to a human. 👇
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px">
+            <span style="font-size:11px;color:#833ab4;font-weight:500">#AIForEveryone</span>
+            <span style="font-size:11px;color:#833ab4;font-weight:500">#EverydayAI</span>
+            <span style="font-size:11px;color:#833ab4;font-weight:500">#TechExplained</span>
+            <span style="font-size:11px;color:#833ab4;font-weight:500">#NoJargon</span>
+            <span style="font-size:11px;color:#833ab4;font-weight:500">#PeopleFirst</span>
+          </div>
+
+          <!-- Meta boxes -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Target audience</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Non-technical professionals 30–55 who feel left behind by AI news</div>
+            </div>
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Why it performs</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Instant recognition — they've done all these things today. Curiosity + relief = share</div>
+            </div>
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Format</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Talking-head Reel, 45–60 sec. Show each app on screen as you name it</div>
+            </div>
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Daily life hook</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Netflix, Maps, Spotify, Autocorrect — apps everyone uses before 9am</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKEDIN POST -->
+      <div style="background:#fafaf7;border-radius:24px;overflow:hidden;border:1px solid #e8e2d8">
+
+        <!-- LinkedIn top bar -->
+        <div style="padding:14px 16px;display:flex;align-items:center;gap:10px;background:#fff;border-bottom:1px solid #f0ece4">
+          <div style="width:36px;height:36px;border-radius:50%;background:#0077b5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0">IJ</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#0a0a0a">Idea Junkies</div>
+            <div style="font-size:11px;color:#888">LinkedIn · 8h ago</div>
+          </div>
+          <div style="margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:#e6f0fb;color:#0c447c;padding:4px 10px;border-radius:100px">LinkedIn</div>
+        </div>
+
+        <!-- Visual: morning routine graphic -->
+        <div style="background:#0d0d0d;min-height:280px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:0;position:relative;overflow:hidden">
+
+          <!-- background grid lines -->
+          <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,#1a1a1a 39px,#1a1a1a 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#1a1a1a 39px,#1a1a1a 40px);opacity:0.4"></div>
+
+          <div style="position:relative;z-index:1">
+            <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff4d00;margin-bottom:12px">Your Morning. Mapped.</div>
+
+            <!-- timeline items -->
+            <div style="display:flex;flex-direction:column;gap:0;position:relative">
+              <div style="position:absolute;left:15px;top:20px;bottom:20px;width:1px;background:#222"></div>
+
+              <div style="display:flex;gap:16px;align-items:center;padding:8px 0">
+                <div style="width:30px;height:30px;border-radius:50%;background:#ff4d00;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;position:relative;z-index:1">📱</div>
+                <div><span style="font-size:12px;color:#888">7:00am — </span><span style="font-size:13px;color:#fff;font-weight:500">Phone alarm (AI learned your sleep cycle)</span></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;padding:8px 0">
+                <div style="width:30px;height:30px;border-radius:50%;background:#0077b5;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;position:relative;z-index:1">📧</div>
+                <div><span style="font-size:12px;color:#888">7:15am — </span><span style="font-size:13px;color:#fff;font-weight:500">Gmail flagged that email as important. AI did that.</span></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;padding:8px 0">
+                <div style="width:30px;height:30px;border-radius:50%;background:#1db954;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;position:relative;z-index:1">🎵</div>
+                <div><span style="font-size:12px;color:#888">7:30am — </span><span style="font-size:13px;color:#fff;font-weight:500">Spotify's Morning Mix. Curated by AI, just for you.</span></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;padding:8px 0">
+                <div style="width:30px;height:30px;border-radius:50%;background:#333;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;position:relative;z-index:1">🗺</div>
+                <div><span style="font-size:12px;color:#888">8:10am — </span><span style="font-size:13px;color:#fff;font-weight:500">Google Maps warned you about traffic. Before you asked.</span></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;padding:8px 0">
+                <div style="width:30px;height:30px;border-radius:50%;background:#ffd600;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;position:relative;z-index:1">⌨️</div>
+                <div><span style="font-size:12px;color:#888">8:22am — </span><span style="font-size:13px;color:#fff;font-weight:500">Autocorrect on your first message. Classic AI save.</span></div>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;padding:12px 16px;background:#111;border:1px solid #222;border-radius:10px">
+              <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;text-align:center">You used AI 5 times before your first coffee.<br/><span style="color:#ff4d00">You just called it "my phone."</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caption -->
+        <div style="padding:20px">
+          <div style="font-size:13px;font-weight:700;color:#0a0a0a;margin-bottom:8px">📝 Full LinkedIn Caption:</div>
+          <div style="font-size:13px;color:#555;line-height:1.8;margin-bottom:14px;border-left:2px solid #0077b5;padding-left:14px;font-style:italic">
+            "I want to tell you something that might change how you feel about AI.<br/><br/>
+            You're already using it. Every single morning.<br/><br/>
+            Your alarm, your Gmail priority inbox, your Spotify Morning Mix, Google Maps pre-empting your commute, autocorrect on your 8am message — that's AI. All of it.<br/><br/>
+            You don't need to understand how it works. You just need to know it's already working for you.<br/><br/>
+            The real question isn't 'should I use AI?'<br/>
+            It's 'how do I use it better?'<br/><br/>
+            That's exactly what we help with at Idea Junkies.<br/><br/>
+            👇 What part of your morning routine do you think uses AI that you've never thought about?"
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px">
+            <span style="font-size:11px;color:#0077b5;font-weight:500">#AIForEveryone</span>
+            <span style="font-size:11px;color:#0077b5;font-weight:500">#EverydayAI</span>
+            <span style="font-size:11px;color:#0077b5;font-weight:500">#FutureOfWork</span>
+            <span style="font-size:11px;color:#0077b5;font-weight:500">#DigitalSkills</span>
+            <span style="font-size:11px;color:#0077b5;font-weight:500">#PeopleFirst</span>
+          </div>
+
+          <!-- LinkedIn comment mockup -->
+          <div style="background:#f3f2ef;border-radius:12px;padding:14px;margin-bottom:14px">
+            <div style="font-size:12px;font-weight:700;color:#0a0a0a;margin-bottom:10px">💬 Comments (simulated engagement)</div>
+            <div style="display:flex;gap:8px;margin-bottom:8px">
+              <div style="width:28px;height:28px;border-radius:50%;background:#e6f0fb;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#0c447c;flex-shrink:0">JT</div>
+              <div style="background:#fff;border-radius:0 8px 8px 8px;padding:8px 10px;font-size:12px;color:#0a0a0a;flex:1;line-height:1.5">Oh wow I never thought of my alarm as AI. Mind officially blown 🤯</div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <div style="width:28px;height:28px;border-radius:50%;background:#fff0e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#c14a00;flex-shrink:0">KM</div>
+              <div style="background:#fff;border-radius:0 8px 8px 8px;padding:8px 10px;font-size:12px;color:#0a0a0a;flex:1;line-height:1.5">This is literally what I needed to read. I've been so intimidated by "AI" but it's just... my daily apps?</div>
+            </div>
+          </div>
+
+          <!-- Meta boxes -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Target audience</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Managers, directors, and HR professionals who feel AI is "not for them"</div>
+            </div>
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Why it performs</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Personal story format + relatable morning routine = high comment rate on LinkedIn</div>
+            </div>
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Format</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Text post + dark infographic image. First-person voice. Ends with a question.</div>
+            </div>
+            <div style="background:#f5f0e8;border-radius:10px;padding:12px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff4d00;margin-bottom:4px">Daily life hook</div>
+              <div style="font-size:12px;color:#0a0a0a;line-height:1.4">Alarm, Gmail, Spotify, Maps, autocorrect — a morning routine everyone recognises</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-bg">
+  <div class="section-inner">
+    <div class="section-tag">What I Bring</div>
+    <h2>Skills &amp; Fit</h2>
+    <p class="section-lead">How my skills match what Idea Junkies is looking for — from essential requirements to desirable extras.</p>
+    <div class="skills-cols">
+      <div class="skill-group">
+        <h3>Essential Skills</h3>
+        <div class="skill-items">
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">AI interest &amp; knowledge</div><div class="skill-bar-bg"><div class="skill-bar" style="width:92%"></div></div><div class="skill-label">Strong</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Content creation</div><div class="skill-bar-bg"><div class="skill-bar" style="width:88%"></div></div><div class="skill-label">Strong</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Social media platforms</div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div><div class="skill-label">Strong</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Remote communication</div><div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div><div class="skill-label">Strong</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Proactive &amp; ideas-driven</div><div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div><div class="skill-label">Strong</div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Desirable Skills</h3>
+        <div class="skill-items">
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Short-form video (TikTok)</div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div><div class="skill-label">Good</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Instagram Reels</div><div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div><div class="skill-label">Good</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">AI tools (ChatGPT etc.)</div><div class="skill-bar-bg"><div class="skill-bar" style="width:88%"></div></div><div class="skill-label">Strong</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Canva / design tools</div><div class="skill-bar-bg"><div class="skill-bar" style="width:78%"></div></div><div class="skill-label">Good</div></div>
+          <div class="skill-item"><div class="skill-dot"></div><div class="skill-name">Analytics &amp; reporting</div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div><div class="skill-label">Good</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<section id="objectives">
+  <div class="section-inner">
+    <div class="section-tag">Learning Objectives</div>
+    <h2>What I'll gain</h2>
+    <p class="section-lead">Three defined learning objectives from the internship — each one measurable and portfolio-ready by week 5.</p>
+    <div class="objectives-grid">
+      <div class="obj-card">
+        <div class="obj-num">01</div>
+        <div class="obj-icon">✍️</div>
+        <div class="obj-title">Content Creation Skills</div>
+        <div class="obj-desc">Create engaging, platform-specific content that simplifies AI trends and contributes to a clear, consistent brand voice across LinkedIn, Instagram, and TikTok.</div>
+        <span class="obj-tag">Portfolio-ready</span>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">02</div>
+        <div class="obj-icon">📈</div>
+        <div class="obj-title">Audience Growth Skills</div>
+        <div class="obj-desc">Test and apply real growth strategies — short-form video, trend formats, collaborations — and optimise based on live performance data from actual posts.</div>
+        <span class="obj-tag">Measurable results</span>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">03</div>
+        <div class="obj-icon">🌐</div>
+        <div class="obj-title">Community &amp; Brand Development</div>
+        <div class="obj-desc">Develop campaigns that drive AI Suite community sign-ups while strengthening Idea Junkies' positioning as an accessible and credible AI authority.</div>
+        <span class="obj-tag">Real ownership</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Idea <span>Junkies</span></div>
+      <div class="footer-desc">A fast-growing AI consultancy helping businesses adopt AI safely, ethically, and in a human-first way. Based in Newcastle. Building the future of practical AI.</div>
+      <a class="footer-link" href="https://ideajunkies.co.uk" target="_blank">ideajunkies.co.uk →</a>
+    </div>
+    <div class="footer-col">
+      <h5>Strategy</h5>
+      <ul>
+        <li><a href="#about">About Idea Junkies</a></li>
+        <li><a href="#posts">Social Content Ideas</a></li>
+        <li><a href="#roadmap">5-Week Roadmap</a></li>
+        <li><a href="#growth">Growth Series</a></li>
+        <li><a href="#objectives">Learning Objectives</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Platforms</h5>
+      <ul>
+        <li><a href="#">LinkedIn (active)</a></li>
+        <li><a href="#">Instagram (growth target)</a></li>
+        <li><a href="#">TikTok (to launch)</a></li>
+        <li><a href="#">The AI Suite (community)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Internship Strategy · Idea Junkies Ltd · Newcastle University NCL Internships</p>
+    <p>People First. AI Second. Always.</p>
+  </div>
+</footer>
+
+</body>
+</html>
